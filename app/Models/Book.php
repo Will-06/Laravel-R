@@ -6,17 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-
-    public function authors()
-    {
+     function Author(){
         return $this->belongsToMany(Author::class);
     }
 
-    public function copies()
-    {
-        return $this->hasMany(Copy::class);
+    function Copy(){
+        return $this->hasOne(Copy::class);
     }
+
 }
-
-
-

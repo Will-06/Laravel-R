@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_copy', function (Blueprint $table) {
+      Schema::disableForeignKeyConstraints();
+        Schema::create('books_authors', function (Blueprint $table) {
             $table->id();
-            $table->date('loan_date');
-            $table->date('return_date');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('copy_id')->constrained()->onDelete('cascade');
+            $table->foreignId('author_id')->constrained('authors')->onDelete('cascade');
+            $table->foreignId('book_id')->constrained('books')->onDelete('cascade');
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_copy');
+        Schema::dropIfExists('books_authors');
     }
 };

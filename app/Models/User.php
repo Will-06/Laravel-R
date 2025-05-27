@@ -4,17 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class user extends Model
 {
-
-    public function copies()
-    {
+    function Copy(){
         return $this->belongsToMany(Copy::class);
     }
-
-    public function sessions()
-    {
-        return $this->hasMany(Session::class);
-    }
 }
-

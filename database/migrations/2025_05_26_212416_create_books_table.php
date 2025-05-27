@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        
         Schema::create('books', function (Blueprint $table) {
-             $table->id();
-            $table->string('title');
-            $table->string('publisher');
-            $table->year('year');
-            $table->timestamps();
+            $table->id();
+            $table->string('qualification');
+            $table->string('year');
+            $table->string('publishing');
+             
         });
+        
     }
 
     /**

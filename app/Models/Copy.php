@@ -6,15 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Copy extends Model
 {
-
-
-    public function book()
+    public function User()
     {
-        return $this->belongsTo(Book::class);
+        return $this->belongsToMany(User::class);
     }
 
-    public function userCopies()
+    public function Book()
     {
-        return $this->hasMany(UserCopy::class);
+        return $this->belongsTo(Book::class);
     }
 }

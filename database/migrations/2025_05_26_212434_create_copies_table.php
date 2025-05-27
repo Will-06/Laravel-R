@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('copies', function (Blueprint $table) {
-           $table->id();
-            $table->string('location');
-            $table->foreignId('book_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
+            $table->id();
+            $table->string("location");
+            $table->foreignId('book_id')->constrained('books')->onDelete('cascade');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
