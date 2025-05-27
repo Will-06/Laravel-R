@@ -12,7 +12,7 @@ class OrmController extends Controller
 {
     public function index()
     {
-        $authors = Author::find(0);
+        $authors = Author::find(3);
         return $authors->Book;
           
           //$books = Book::find(1);
@@ -25,7 +25,7 @@ class OrmController extends Controller
           return $authors;
   
   
-           $user1s = User::find(2);
+           $users = User::find(2);
          return $users->Copy;
           return $users;
   
@@ -36,13 +36,18 @@ class OrmController extends Controller
   
   
   
-             $exemplaries = Exemplary::find(4);
+             $copies = Copy::find(4);
          return $copies->Book;
           return $copies;
   
   
-              $exemplaries = Copy::find(3);
+              $copy = Copy::find(3);
          return $copies->User;
           return $copies;*/
+
+
+
+
+         // [Wilber Hernan Anacona Uni]
     }
 }
